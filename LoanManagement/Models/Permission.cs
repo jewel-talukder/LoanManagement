@@ -1,7 +1,10 @@
-﻿namespace LoanManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LoanManagement.Models
 {
     public class Permission
     {
+        [Key]
         public int PermissionId { get; set; }
         public int MenuId { get; set; }
         public bool CanView { get; set; }

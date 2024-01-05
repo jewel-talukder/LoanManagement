@@ -1,7 +1,10 @@
-﻿namespace LoanManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LoanManagement.Models
 {
     public class Guarantor
     {
+        [Key]
         public int GuarantorId { get; set; }
         public string GuarantorName { get; set; }
         public string GuarantorRelation { get; set; }

@@ -1,7 +1,10 @@
-﻿namespace LoanManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LoanManagement.Models
 {
     public class Nominee
     {
+        [Key]
         public int NomineeId { get; set; }
         public string NomineeName { get; set; }
         public string NomineeRelation { get; set; }

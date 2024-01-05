@@ -1,7 +1,10 @@
-﻿namespace LoanManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LoanManagement.Models
 {
     public class Menu
     {
+        [Key]
         public int MenuId { get; set; }
         public string MenuName { get; set; }
         public int ParentMenu { get; set; }

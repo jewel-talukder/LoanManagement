@@ -1,7 +1,10 @@
-﻿namespace LoanManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LoanManagement.Models
 {
     public class Role
     {
+        [Key]
         public int RoleId { get; set; }
         public string RoleName { get; set; }
         public DateTime CreatedAt { get; set; }

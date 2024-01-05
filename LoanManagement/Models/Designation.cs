@@ -1,7 +1,10 @@
-﻿namespace LoanManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LoanManagement.Models
 {
     public class Designation
     {
+        [Key]
         public int DesignationId { get; set; }
         public string DesignationName { get; set; }
         public string DesignationDescription { get; set; }

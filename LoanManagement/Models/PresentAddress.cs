@@ -1,7 +1,10 @@
-﻿namespace LoanManagement.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace LoanManagement.Models
 {
     public class PresentAddress
     {
+        [Key]
         public int Id { get; set; }
         public string Village { get; set; }
         public string PostOffice { get; set; }
