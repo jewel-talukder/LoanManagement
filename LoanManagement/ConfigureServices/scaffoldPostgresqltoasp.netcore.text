@@ -1,0 +1,5 @@
+﻿Scaffold-DbContext "Server=my_server;Port=my_port;Database=my_database;User Id=my_user;Password=my_password;" Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir Models -Context YourDbContext -Tables YourTableName;
+
+
+
+Scaffold-DbContext "Server=localhost;Port=1977;Database=LoanManagement;User Id=postgres;Password=1977;" Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir Models -Context DemoContext -Tables tableName
