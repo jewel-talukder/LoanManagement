@@ -6,8 +6,8 @@ namespace LoanManagement.Interfaces
     {
         Task<IEnumerable<UserList>> GetUserListAsync();
         Task<UserList> GetUserAsync(int id);
-        Task<UserList> AddUserAsync(UserList user);
-        Task<UserList> UpdateUserAsync(UserList user);
+        Task<bool> AddUserAsync(UserList user);
+        Task<bool> UpdateUserAsync(UserList user);
         Task<UserList> LoginUser(UserList user);
 
 

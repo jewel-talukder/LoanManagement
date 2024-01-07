@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Localization;
+﻿using LoanManagement.Interfaces;
+using LoanManagement.Repositorys;
+using Microsoft.AspNetCore.Localization;
 using System.Globalization;
 
 namespace LoanManagement.ConfigureServices
@@ -7,6 +9,7 @@ namespace LoanManagement.ConfigureServices
     {
         public static void ExtractEmRegisterService(IServiceCollection services)
         {
+            services.AddScoped<ILogin, LoginRepository>();
             services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
             services.Configure<RequestLocalizationOptions>(
                 options =>
