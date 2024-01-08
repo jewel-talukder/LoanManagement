@@ -10,6 +10,7 @@ namespace LoanManagement.ConfigureServices
         public static void ExtractEmRegisterService(IServiceCollection services)
         {
             services.AddScoped<ILogin, LoginRepository>();
+            services.AddScoped<IMenu, MenuRepository>();
             services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
             services.Configure<RequestLocalizationOptions>(
                 options =>

@@ -59,6 +59,7 @@ namespace LoanManagement.Repositorys
         {
             try
             {
+                var resss = await _context.UserList.ToListAsync();
                 var res=await _context.UserList.Where(x => x.UserName == user.UserName && x.UserPassword == user.UserPassword && x.UserStatus =="Active").FirstOrDefaultAsync();
                 if (res != null)
                 {
@@ -66,7 +67,7 @@ namespace LoanManagement.Repositorys
                 }
                 else
                 {
-                    res=await _context.UserList.Where(x => x.UserPhone == user.UserPhone && x.UserPassword==user.UserPassword && x.UserStatus=="Active").FirstOrDefaultAsync();
+                    res=await _context.UserList.Where(x => x.UserPhone == user.UserName && x.UserPassword==user.UserPassword && x.UserStatus=="Active").FirstOrDefaultAsync();
                     return res;
                 }
                 return null;
