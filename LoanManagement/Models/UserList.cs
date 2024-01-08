@@ -11,6 +11,7 @@ namespace LoanManagement.Models
         public string UserPhone { get; set; }
         public int DesignationId { get; set; }
         public int DepartmentId { get; set; }
+        public int RoleId { get; set; }
         public int CompanyId { get; set; }
         public string UserPassword { get; set; }
         public string UserAddress { get; set; }
