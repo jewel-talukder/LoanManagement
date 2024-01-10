@@ -1,4 +1,5 @@
 ﻿using LoanManagement.Interfaces;
+using LoanManagement.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,5 +14,24 @@ namespace LoanManagement.Controllers
         {
             _menu = menu;
         }
+        [HttpGet("GetMenu")]
+        public async Task<ActionResult> GetMenu()
+        {
+            var result = _menu.GetMenuListAsync();
+            return Ok(result);
+        }
+        [HttpPost("NewMenu")]
+        public async Task<ActionResult> CreateMenu(Menu menu)
+        {
+            var result = _menu.CreateOrUpdate(menu, 1);
+            return Ok(result);
+        }
+        [HttpPut("UpdateMenu")]
+        public async Task<ActionResult> UpdateMenu(Menu menu)
+        {
+            var result = _menu.CreateOrUpdate(menu, 2);
+            return Ok(result);
+        }
     }
+    
 }

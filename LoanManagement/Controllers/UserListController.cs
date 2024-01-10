@@ -1,7 +1,9 @@
-﻿using LoanManagement.Interfaces;
+﻿using LoanManagement.DataContext;
+using LoanManagement.Interfaces;
 using LoanManagement.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LoanManagement.Controllers
 {
@@ -9,10 +11,12 @@ namespace LoanManagement.Controllers
     [ApiController]
     public class UserListController : ControllerBase
     {
+        private readonly DatabaseContext _context;
         private readonly ILogin _login;
-       public UserListController(ILogin login)
+       public UserListController(ILogin login,DatabaseContext context)
         {
             _login = login;
+            _context = context;
         }
         [HttpGet("GetAllUser")]
         public async Task<IActionResult> Get()
@@ -44,5 +48,6 @@ namespace LoanManagement.Controllers
             }
 
         }
+        
     }
 }

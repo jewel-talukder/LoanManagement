@@ -79,9 +79,18 @@ namespace LoanManagement.Repositorys
             }
         }
 
-        public Task<bool> UpdateUserAsync(UserList user)
+        public async Task<bool> UpdateUserAsync(UserList user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

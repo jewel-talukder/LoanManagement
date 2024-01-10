@@ -25,6 +25,10 @@ namespace LoanManagement.DataContext
         public DbSet<SavingDetails> SavingDetails { get; set; }
         public DbSet<UserList> UserList { get; set; }
         public DbSet<Permission> Permissions { get; set; }
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<SomethingViewmodel>().HasNoKey();
+            // Other configurations...
+        }
     }
 }
