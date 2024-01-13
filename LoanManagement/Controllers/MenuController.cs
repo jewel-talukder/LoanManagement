@@ -15,10 +15,10 @@ namespace LoanManagement.Controllers
             _menu = menu;
         }
         [HttpGet("GetMenu")]
-        public async Task<ActionResult> GetMenu()
+        public async Task<IActionResult> GetMenu()
         {
             var result = _menu.GetMenuListAsync();
-            return Ok(result);
+            return Ok(result.Result);
         }
         [HttpPost("NewMenu")]
         public async Task<ActionResult> CreateMenu(Menu menu)

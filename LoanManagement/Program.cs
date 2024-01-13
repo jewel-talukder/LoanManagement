@@ -6,19 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("LoanContext");
 
 // Add services to the container.
-builder.Services.AddDbContext<DatabaseContext>
-    (options => options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseNpgsql(connectionString));
 // Add services to the container.
 // REGISTER ExtractEMService
 ExtractEmService.ExtractEmRegisterService(builder.Services);
 builder.Services.AddControllers();
-//builder.Services.AddSession(options =>
-//{
-//    options.IdleTimeout = TimeSpan.FromMinutes(30);
-//    options.Cookie.HttpOnly = true;
-//    options.Cookie.IsEssential = true;
-//}); 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>

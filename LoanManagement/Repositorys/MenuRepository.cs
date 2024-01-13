@@ -84,28 +84,30 @@ namespace LoanManagement.Repositorys
             }
         }
 
-        public async Task<IEnumerable<dynamic>> GetMenuListAsync()
+        public  async Task<IEnumerable<dynamic>> GetMenuListAsync()
         {
             try
             {
-                var res=await _context.Menus.Select(x => new 
+                var res= _context.Menus.Select(x => new 
                 {
                     MenuId = x.MenuId,
-                    MenuName = x.MenuName,
-                    ParentMenu = x.ParentMenu,
-                    MenuUrl = x.MenuUrl,
-                    MenuIcon = x.MenuIcon,
-                    MenuSerial = x.MenuSerial,
-                    MenuStatus = x.MenuStatus,
+                    MenuName = x.MenuName??"",
+                    ParentMenu = x.ParentMenu==null ?0:x.ParentMenu,
+                    MenuUrl = x.MenuUrl??"",
+                    MenuIcon = x.MenuIcon ?? "",
+                    MenuSerial = x.MenuSerial==null?0:x.MenuSerial,
+                    MenuStatus = x.MenuStatus==null?0:x.MenuStatus,
+                    ParentMenuName=_context.Menus.Where(y=>y.MenuId==x.ParentMenu).Select(y=>y.MenuName).FirstOrDefault(),
 
-                }).ToListAsync();
-                return res;
+                }).OrderBy(x=>x.MenuId).ToList();
+                return  res;
             }
             catch (Exception)
             {
 
                 throw;
             }
+            
         }
 
         public async Task<IEnumerable<dynamic>> GetMenuListAsyncByRollId(int rolId)
