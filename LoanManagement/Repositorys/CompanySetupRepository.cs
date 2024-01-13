@@ -73,7 +73,7 @@ namespace LoanManagement.Repositorys
                 var res=await _context.CompanyMasters.Select( x => new { 
                     CompanyId = x.CompanyId,
                     CompanyName = x.CompanyName,
-                    ParentCompany = _context.CompanyMasters.Where(p=>p.ParentCompany==x.ParentCompany).Select(x=>x.CompanyName).FirstOrDefault(),
+                    ParentCompany = _context.CompanyMasters.Where(p=>p.CompanyId==x.ParentCompany).Select(x=>x.CompanyName).FirstOrDefault(),
                     CompanyAddress = x.CompanyAddress,
                     CompanyPhone1 = x.CompanyPhone1,
                     CompanyPhone2 = x.CompanyPhone2,

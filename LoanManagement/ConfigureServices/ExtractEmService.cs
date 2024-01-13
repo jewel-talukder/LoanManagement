@@ -14,6 +14,8 @@ namespace LoanManagement.ConfigureServices
             services.AddScoped<ILogin, LoginRepository>();
             services.AddScoped<IMenu, MenuRepository>();
             services.AddScoped<ICompanySetUp, CompanySetupRepository>();
+            services.AddScoped<IDepartment, DepartmentRepository>();
+            services.AddScoped<IDesignation,DesignationRepository>();
             services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
             services.Configure<RequestLocalizationOptions>(
                 options =>
